@@ -17,7 +17,7 @@ public class DirectoriosXml {
 	
 
 	public static void main(String[] args) {
-		File archiv = new File("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\src\\Config.json");
+		File archiv = new File("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\src\\Config.xml");
 		try {
 			DocumentBuilderFactory configur = DocumentBuilderFactory.newInstance();
 			DocumentBuilder constructor = configur.newDocumentBuilder();
