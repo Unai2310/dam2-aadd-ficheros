@@ -17,7 +17,7 @@ public class DirectoriosXml {
 	
 
 	public static void main(String[] args) {
-		File archiv = new File("C:\\Users\\Santi\\eclipse-workspace\\Ejercicios_Acceso_Datos\\src\\Actividad2\\actividad.xml");
+		File archiv = new File("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\src\\Config.json");
 		try {
 			DocumentBuilderFactory configur = DocumentBuilderFactory.newInstance();
 			DocumentBuilder constructor = configur.newDocumentBuilder();
