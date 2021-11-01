@@ -36,7 +36,7 @@ public class Metodos implements Ixml {
 		Properties config = new Properties();
 		InputStream Entrada = null;
 		try {
-			Entrada = new FileInputStream("C:\\Users\\Unai\\Desktop\\config.properties");
+			Entrada = new FileInputStream("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\Actividad3\\config.properties");
 			config.load(Entrada);
 			File inputFile = new File(config.getProperty("RutaOrigen"));
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -72,7 +72,7 @@ public class Metodos implements Ixml {
 		Properties config = new Properties();
 		InputStream Entrada = null;
 		try {
-		Entrada = new FileInputStream("C:\\Users\\Unai\\Desktop\\config.properties");
+		Entrada = new FileInputStream("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\Actividad3\\config.properties");
 		config.load(Entrada);
 		File inputFile = new File(config.getProperty("RutaOrigen"));
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -103,7 +103,7 @@ public class Metodos implements Ixml {
 	public void getXml(List<Alumno> lista) throws ParserConfigurationException, TransformerFactoryConfigurationError, TransformerException, IOException {
 		Properties config = new Properties();
 		InputStream Entrada = null;
-		Entrada = new FileInputStream("C:\\Users\\Unai\\Desktop\\config.properties");
+		Entrada = new FileInputStream("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\Actividad3\\config.properties");
 		config.load(Entrada);
 		var document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 		  

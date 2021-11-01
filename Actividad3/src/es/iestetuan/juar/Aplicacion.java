@@ -12,6 +12,8 @@ public class Aplicacion {
 
 	public static void main(String[] args) throws ParserConfigurationException, TransformerFactoryConfigurationError, TransformerException, IOException {
 		Metodos metodos = new Metodos();
+		System.out.println(metodos.getAlumno("171"));
+		System.out.println(metodos.getAlumnos())
 		metodos.getXml(metodos.getAlumnos());
 	}
 
