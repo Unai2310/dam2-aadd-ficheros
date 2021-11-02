@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alumnos>
+    <alumno id="171">
+        <dni>11111111A</dni>
+        <nombre>Julia</nombre>
+        <apellido1>Sanz</apellido1>
+        <apellido2>Martin</apellido2>
+        <email>juliasanz@iestetuan.com</email>
+    </alumno>
+    <alumno id="318">
+        <dni>22222222B</dni>
+        <nombre>Francisco</nombre>
+        <apellido1>Dominguez</apellido1>
+        <apellido2>Sanchez</apellido2>
+        <email>frandomingue@iesteuan.com</email>
+    </alumno>
+    <alumno id="619">
+        <dni>33333333C</dni>
+        <nombre>Valery</nombre>
+        <apellido1>Martin</apellido1>
+        <apellido2/>
+        <email>valerymartin@iestetuan.com</email>
+    </alumno>
+    <alumno id="300">
+        <dni>44444444D</dni>
+        <nombre>Unai</nombre>
+        <apellido1>Anton</apellido1>
+        <apellido2>Rios</apellido2>
+        <email>unaiyanton@gmail.com</email>
+    </alumno>
+</alumnos>

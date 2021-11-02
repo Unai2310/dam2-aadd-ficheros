@@ -2,7 +2,6 @@ package es.iestetuan.jjuar.dao.fictexto;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class Metodos implements Ixml {
 		Properties config = new Properties();
 		InputStream Entrada = null;
 		try {
-			Entrada = new FileInputStream("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\Actividad3\\config.properties");
+			Entrada = new FileInputStream("config.properties");
 			config.load(Entrada);
 			File inputFile = new File(config.getProperty("RutaOrigen"));
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -72,14 +71,14 @@ public class Metodos implements Ixml {
 		Properties config = new Properties();
 		InputStream Entrada = null;
 		try {
-		Entrada = new FileInputStream("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\Actividad3\\config.properties");
-		config.load(Entrada);
-		File inputFile = new File(config.getProperty("RutaOrigen"));
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		Document doc = dBuilder.parse(inputFile);
-		doc.getDocumentElement().normalize();
-		NodeList nList = doc.getElementsByTagName("alumno");
+			Entrada = new FileInputStream("config.properties");
+			config.load(Entrada);
+			File inputFile = new File(config.getProperty("RutaOrigen"));
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(inputFile);
+			doc.getDocumentElement().normalize();
+			NodeList nList = doc.getElementsByTagName("alumno");
 			for (int temp = 0; temp < nList.getLength(); temp++) {
 				Alumno nuevo = new Alumno();
 				Node Nodo = nList.item(temp);
@@ -91,8 +90,9 @@ public class Metodos implements Ixml {
 					nuevo.setApellido1(Elemento.getElementsByTagName("apellido1").item(0).getTextContent());
 					nuevo.setApellido2(Elemento.getElementsByTagName("apellido2").item(0).getTextContent());
 					nuevo.setEmail(Elemento.getElementsByTagName("email").item(0).getTextContent());
-		        }
-				lista.add(nuevo);			}
+				}
+				lista.add(nuevo);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -103,7 +103,7 @@ public class Metodos implements Ixml {
 	public void getXml(List<Alumno> lista) throws ParserConfigurationException, TransformerFactoryConfigurationError, TransformerException, IOException {
 		Properties config = new Properties();
 		InputStream Entrada = null;
-		Entrada = new FileInputStream("E:\\Documentos\\Github\\Acceso a datos\\dam2-aadd-ficheros\\Actividad3\\config.properties");
+		Entrada = new FileInputStream("config.properties");
 		config.load(Entrada);
 		var document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 		  
@@ -111,16 +111,17 @@ public class Metodos implements Ixml {
 		  
 		var alumnosguia = document.createElement("alumnos");
 		document.appendChild(alumnosguia);
-		  
-		createAlumno(document,alumnosguia,lista.get(0));
-		createAlumno(document,alumnosguia,lista.get(1));
-		createAlumno(document,alumnosguia,lista.get(2)); 
+		
+		for (int i = 0; i<lista.size();i++) {
+			createAlumno(document,alumnosguia,lista.get(i));
+		}
+		
 		var domSource = new DOMSource(document);
 		var result = new StreamResult(config.getProperty("RutaDestino"));
 		var transformer = TransformerFactory.newInstance().newTransformer();
 		  
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.transform(domSource, result);	
+		transformer.transform(domSource, result);
 	}
 	
 	private static void createAlumno(Document document, Element empDad, Alumno alumno) {
@@ -148,5 +149,31 @@ public class Metodos implements Ixml {
 		var Email = document.createElement("email");
 		Email.appendChild(document.createTextNode(alumno.email));
 		alumnos.appendChild(Email);
+	}
+
+	@Override
+	public List<Alumno> altaAlumno(List<Alumno> lista, Alumno alumno) {
+		lista.add(alumno);
+		return lista;
+	}
+
+	@Override
+	public List<Alumno> bajaAlumno(List<Alumno> lista, String id) {
+		for (Alumno alumno : lista) {
+			if (alumno.id.equals(id)) {
+				lista.remove(alumno);
+			}
+		}
+		return lista;
+	}
+
+	@Override
+	public List<Alumno> modId(List<Alumno> lista, String id, String nuevo) {
+		for (Alumno alumno : lista) {
+			if (alumno.id.equals(id)) {
+				alumno.id = nuevo;
+			}
+		}
+		return lista;
 	}
 }

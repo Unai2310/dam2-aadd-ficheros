@@ -9,6 +9,7 @@ public class Alumno {
 	public String email;
 	
 	public Alumno() {
+		id = "Sin id";
 		nie = "Sin NIE";
 		nombre = "Sin Nombre";
 		apellido1 = "Sin Apellido1";

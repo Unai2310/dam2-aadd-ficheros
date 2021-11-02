@@ -14,5 +14,8 @@ public interface Ixml {
 	public Alumno getAlumno(String id);
 	public List<Alumno> getAlumnos();
 	public void getXml(List<Alumno> lista) throws TransformerException, ParserConfigurationException, TransformerFactoryConfigurationError, FileNotFoundException, IOException;
+	public List<Alumno> altaAlumno(List<Alumno> lista, Alumno alumno);
+	public List<Alumno> bajaAlumno(List<Alumno> lista, String id);
+	public List<Alumno> modId(List<Alumno> lista, String id, String nuevo);
 
 }
